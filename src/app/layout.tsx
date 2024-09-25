@@ -6,6 +6,8 @@ const font = Plus_Jakarta_Sans({
   subsets: ['latin'],
 })
 
+console.log('Sidebar Item');
+
 export default function RootLayout({
   children,
 }: {
