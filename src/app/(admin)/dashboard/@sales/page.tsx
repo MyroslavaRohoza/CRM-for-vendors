@@ -8,7 +8,13 @@ import DashboardCard from '@/app/components/dashboard-card';
 export interface PageProps {}
 
 export default async function Page({}: PageProps) {
-  const data = await getSummarySales();
+  const data = await getSummarySales(
+    {
+    next: {
+      revalidate: 5,
+    }
+  }
+  );
 
   return (
     <DashboardCard label="Sales details">
