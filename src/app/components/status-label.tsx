@@ -1,13 +1,11 @@
+import { CompanyStatus } from '@/lib/api';
 import React from 'react';
 import clsx from 'clsx';
-import { CompanyStatus } from '@/lib/api';
 
 export interface StatusLabelProps {
   status: CompanyStatus;
   disabled?: boolean;
-  styled?: boolean;
 }
-
 const labelByStatus = {
   [CompanyStatus.Active]: 'Active',
   [CompanyStatus.NotActive]: 'Not Active',
@@ -15,14 +13,7 @@ const labelByStatus = {
   [CompanyStatus.Suspended]: 'Suspended',
 };
 
-export default function StatusLabel({
-  status,
-  disabled,
-  styled = true,
-}: StatusLabelProps) {
-  const label = labelByStatus[status];
-  if (!styled) return <>{label}</>;
-
+export default function StatusLabel({ status, disabled }: StatusLabelProps) {
   return (
     <div
       className={clsx(
@@ -36,8 +27,8 @@ export default function StatusLabel({
         },
       )}
     >
-      <div className="w-1 h-1 mr-2 rounded-full bg-current" />
-      {label}
+      <div className="w-1 h-1 mr-2 rounded-full bg-current" />{' '}
+      {labelByStatus[status]}
     </div>
   );
 }
