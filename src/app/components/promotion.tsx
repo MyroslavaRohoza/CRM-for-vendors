@@ -3,8 +3,6 @@ import Image from 'next/image';
 
 import type { Promotion as PromotionType } from '@/lib/api';
 
-import { Promotion } from '@/lib/api';
-
 export interface PromotionProps {
   promotion: PromotionType;
 }
